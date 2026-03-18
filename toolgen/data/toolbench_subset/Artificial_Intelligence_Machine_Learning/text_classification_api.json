@@ -1,0 +1,78 @@
+{
+  "tool_name": "text_classification_api",
+  "tool_description": "Classify text into categories using pre-trained ML models.",
+  "api_list": [
+    {
+      "name": "classify_text",
+      "description": "Classify a single text string.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Text to classify"
+        },
+        {
+          "name": "model",
+          "type": "string",
+          "description": "Model to use"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "top_n",
+          "type": "integer",
+          "description": "Return top N classes"
+        }
+      ],
+      "response_fields": [
+        "label",
+        "confidence",
+        "all_scores"
+      ]
+    },
+    {
+      "name": "list_models",
+      "description": "List available classification models.",
+      "method": "GET",
+      "required_parameters": [],
+      "optional_parameters": [
+        {
+          "name": "task",
+          "type": "string",
+          "description": "Filter by task type"
+        }
+      ],
+      "response_fields": [
+        "model_id",
+        "task",
+        "accuracy",
+        "languages"
+      ]
+    },
+    {
+      "name": "batch_classify",
+      "description": "Classify multiple texts at once.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "texts",
+          "type": "string",
+          "description": "JSON array of texts"
+        },
+        {
+          "name": "model",
+          "type": "string",
+          "description": "Model ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "results",
+        "labels",
+        "confidences"
+      ]
+    }
+  ],
+  "category": "Artificial_Intelligence_Machine_Learning"
+}

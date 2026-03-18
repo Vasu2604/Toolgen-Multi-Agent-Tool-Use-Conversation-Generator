@@ -1,0 +1,59 @@
+{
+  "tool_name": "sports_betting_odds_api",
+  "tool_description": "Betting odds and predictions for sports events.",
+  "api_list": [
+    {
+      "name": "get_match_odds",
+      "description": "Get betting odds for a match.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "match_id",
+          "type": "string",
+          "description": "Match ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "bookmaker",
+          "type": "string",
+          "description": "Specific bookmaker"
+        }
+      ],
+      "response_fields": [
+        "home_win_odds",
+        "draw_odds",
+        "away_win_odds",
+        "best_odds",
+        "bookmaker"
+      ]
+    },
+    {
+      "name": "get_upcoming_fixtures",
+      "description": "Get upcoming fixtures for a league.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "league_id",
+          "type": "string",
+          "description": "League ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "days_ahead",
+          "type": "integer",
+          "description": "Look-ahead days"
+        }
+      ],
+      "response_fields": [
+        "match_id",
+        "home_team",
+        "away_team",
+        "date",
+        "venue"
+      ]
+    }
+  ],
+  "category": "Sports"
+}

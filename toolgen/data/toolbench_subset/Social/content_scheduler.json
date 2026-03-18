@@ -1,0 +1,71 @@
+{
+  "tool_name": "content_scheduler",
+  "tool_description": "Schedule and publish social media content.",
+  "api_list": [
+    {
+      "name": "schedule_post",
+      "description": "Schedule a post for future publishing.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "platform",
+          "type": "string",
+          "description": "Platform to post to"
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "description": "Post content"
+        },
+        {
+          "name": "scheduled_time",
+          "type": "string",
+          "description": "ISO 8601 datetime"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "media_url",
+          "type": "string",
+          "description": "Media attachment URL"
+        },
+        {
+          "name": "hashtags",
+          "type": "string",
+          "description": "Comma-separated hashtags"
+        }
+      ],
+      "response_fields": [
+        "post_id",
+        "scheduled_time",
+        "platform",
+        "status"
+      ]
+    },
+    {
+      "name": "get_best_times",
+      "description": "Get optimal posting times for an account.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "account_id",
+          "type": "string",
+          "description": "Account ID"
+        },
+        {
+          "name": "platform",
+          "type": "string",
+          "description": "Platform name"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "day_of_week",
+        "hour",
+        "engagement_score",
+        "recommended"
+      ]
+    }
+  ],
+  "category": "Social"
+}

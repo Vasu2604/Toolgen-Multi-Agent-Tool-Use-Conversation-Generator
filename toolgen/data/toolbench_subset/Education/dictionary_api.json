@@ -1,0 +1,52 @@
+{
+  "tool_name": "dictionary_api",
+  "tool_description": "Word definitions, synonyms, antonyms, and usage examples.",
+  "api_list": [
+    {
+      "name": "get_definition",
+      "description": "Get the definition of a word.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "word",
+          "type": "string",
+          "description": "Word to look up"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "language",
+          "type": "string",
+          "description": "Language code"
+        }
+      ],
+      "response_fields": [
+        "word",
+        "phonetic",
+        "definitions",
+        "part_of_speech",
+        "examples",
+        "origin"
+      ]
+    },
+    {
+      "name": "get_synonyms",
+      "description": "Get synonyms and antonyms for a word.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "word",
+          "type": "string",
+          "description": "Word"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "synonyms",
+        "antonyms",
+        "related_words"
+      ]
+    }
+  ],
+  "category": "Education"
+}

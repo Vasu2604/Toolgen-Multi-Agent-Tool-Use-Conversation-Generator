@@ -1,0 +1,97 @@
+{
+  "tool_name": "product_search_api",
+  "tool_description": "Search products across e-commerce marketplaces.",
+  "api_list": [
+    {
+      "name": "search_products",
+      "description": "Search products by keyword.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Search query"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "category",
+          "type": "string",
+          "description": "Product category"
+        },
+        {
+          "name": "min_price",
+          "type": "number",
+          "description": "Min price"
+        },
+        {
+          "name": "max_price",
+          "type": "number",
+          "description": "Max price"
+        },
+        {
+          "name": "sort",
+          "type": "string",
+          "description": "Sort order"
+        }
+      ],
+      "response_fields": [
+        "product_id",
+        "title",
+        "price",
+        "rating",
+        "review_count",
+        "image_url"
+      ]
+    },
+    {
+      "name": "get_product_details",
+      "description": "Get detailed info for a product.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "product_id",
+          "type": "string",
+          "description": "Product ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "title",
+        "description",
+        "price",
+        "availability",
+        "seller",
+        "specs"
+      ]
+    },
+    {
+      "name": "get_product_reviews",
+      "description": "Get customer reviews for a product.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "product_id",
+          "type": "string",
+          "description": "Product ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "page",
+          "type": "integer",
+          "description": "Page number"
+        }
+      ],
+      "response_fields": [
+        "review_id",
+        "rating",
+        "title",
+        "body",
+        "author",
+        "date"
+      ]
+    }
+  ],
+  "category": "Commerce"
+}

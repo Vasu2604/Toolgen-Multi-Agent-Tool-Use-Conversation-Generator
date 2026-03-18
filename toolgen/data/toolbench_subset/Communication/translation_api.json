@@ -1,0 +1,66 @@
+{
+  "tool_name": "translation_api",
+  "tool_description": "Translate text between languages.",
+  "api_list": [
+    {
+      "name": "translate_text",
+      "description": "Translate text to a target language.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Text to translate"
+        },
+        {
+          "name": "target_language",
+          "type": "string",
+          "description": "Target language code"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "source_language",
+          "type": "string",
+          "description": "Source language (auto-detect if omitted)"
+        }
+      ],
+      "response_fields": [
+        "translated_text",
+        "detected_source_language",
+        "confidence"
+      ]
+    },
+    {
+      "name": "detect_language",
+      "description": "Detect the language of a text.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Text to detect"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "language_code",
+        "language_name",
+        "confidence"
+      ]
+    },
+    {
+      "name": "list_languages",
+      "description": "List all supported languages.",
+      "method": "GET",
+      "required_parameters": [],
+      "optional_parameters": [],
+      "response_fields": [
+        "language_code",
+        "language_name",
+        "native_name"
+      ]
+    }
+  ],
+  "category": "Communication"
+}

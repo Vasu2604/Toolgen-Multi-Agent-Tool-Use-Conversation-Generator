@@ -1,0 +1,73 @@
+{
+  "tool_name": "medical_info_api",
+  "tool_description": "Access medical conditions, symptoms, and treatment information.",
+  "api_list": [
+    {
+      "name": "search_conditions",
+      "description": "Search for medical conditions.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Condition name or symptom"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "category",
+          "type": "string",
+          "description": "Medical category"
+        }
+      ],
+      "response_fields": [
+        "condition_id",
+        "name",
+        "description",
+        "symptoms",
+        "icd10_code"
+      ]
+    },
+    {
+      "name": "get_condition_details",
+      "description": "Get detailed info for a medical condition.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "condition_id",
+          "type": "string",
+          "description": "Condition ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "name",
+        "symptoms",
+        "causes",
+        "diagnosis",
+        "treatment_options",
+        "prognosis"
+      ]
+    },
+    {
+      "name": "check_drug_interactions",
+      "description": "Check for interactions between medications.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "drugs",
+          "type": "string",
+          "description": "Comma-separated drug names"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "interaction_found",
+        "severity",
+        "description",
+        "recommendations"
+      ]
+    }
+  ],
+  "category": "Health"
+}

@@ -1,0 +1,94 @@
+{
+  "tool_name": "news_api",
+  "tool_description": "Search and retrieve news articles from global sources.",
+  "api_list": [
+    {
+      "name": "get_top_headlines",
+      "description": "Get top news headlines.",
+      "method": "GET",
+      "required_parameters": [],
+      "optional_parameters": [
+        {
+          "name": "category",
+          "type": "string",
+          "description": "business|tech|sports|health"
+        },
+        {
+          "name": "country",
+          "type": "string",
+          "description": "2-letter country code"
+        },
+        {
+          "name": "limit",
+          "type": "integer",
+          "description": "Number of articles"
+        }
+      ],
+      "response_fields": [
+        "title",
+        "source",
+        "published_at",
+        "url",
+        "description",
+        "author"
+      ]
+    },
+    {
+      "name": "search_news",
+      "description": "Search news articles by keyword.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Search query"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "from_date",
+          "type": "string",
+          "description": "Start date"
+        },
+        {
+          "name": "to_date",
+          "type": "string",
+          "description": "End date"
+        },
+        {
+          "name": "language",
+          "type": "string",
+          "description": "Language code"
+        }
+      ],
+      "response_fields": [
+        "title",
+        "source",
+        "published_at",
+        "url",
+        "content"
+      ]
+    },
+    {
+      "name": "get_article_content",
+      "description": "Get full text content of an article.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "article_url",
+          "type": "string",
+          "description": "URL of the article"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "title",
+        "content",
+        "author",
+        "published_at",
+        "images"
+      ]
+    }
+  ],
+  "category": "News"
+}

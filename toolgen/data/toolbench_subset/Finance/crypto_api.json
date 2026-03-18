@@ -1,0 +1,56 @@
+{
+  "tool_name": "crypto_api",
+  "tool_description": "Cryptocurrency prices, market data, and portfolio tracking.",
+  "api_list": [
+    {
+      "name": "get_crypto_price",
+      "description": "Get current price for a cryptocurrency.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "coin_id",
+          "type": "string",
+          "description": "Coin ID e.g. bitcoin"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "currency",
+          "type": "string",
+          "description": "Fiat currency for price"
+        }
+      ],
+      "response_fields": [
+        "id",
+        "name",
+        "symbol",
+        "price",
+        "market_cap",
+        "24h_change",
+        "volume"
+      ]
+    },
+    {
+      "name": "get_market_overview",
+      "description": "Get global crypto market overview.",
+      "method": "GET",
+      "required_parameters": [],
+      "optional_parameters": [
+        {
+          "name": "limit",
+          "type": "integer",
+          "description": "Top N coins by market cap"
+        }
+      ],
+      "response_fields": [
+        "rank",
+        "name",
+        "symbol",
+        "price",
+        "market_cap",
+        "dominance"
+      ]
+    }
+  ],
+  "category": "Finance"
+}

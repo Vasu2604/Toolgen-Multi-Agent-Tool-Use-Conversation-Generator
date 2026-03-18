@@ -1,0 +1,72 @@
+{
+  "tool_name": "recipe_api",
+  "tool_description": "Search, get, and manage cooking recipes.",
+  "api_list": [
+    {
+      "name": "search_recipes",
+      "description": "Search for recipes by ingredient or dish name.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Search query"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "diet",
+          "type": "string",
+          "description": "vegetarian|vegan|keto|gluten-free"
+        },
+        {
+          "name": "cuisine",
+          "type": "string",
+          "description": "Cuisine type"
+        },
+        {
+          "name": "max_time",
+          "type": "integer",
+          "description": "Max cooking time in minutes"
+        }
+      ],
+      "response_fields": [
+        "recipe_id",
+        "title",
+        "rating",
+        "time_minutes",
+        "servings",
+        "calories"
+      ]
+    },
+    {
+      "name": "get_recipe",
+      "description": "Get full recipe with ingredients and instructions.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "recipe_id",
+          "type": "string",
+          "description": "Recipe ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "servings",
+          "type": "integer",
+          "description": "Scale to servings"
+        }
+      ],
+      "response_fields": [
+        "title",
+        "ingredients",
+        "steps",
+        "nutrition",
+        "tips",
+        "prep_time",
+        "cook_time"
+      ]
+    }
+  ],
+  "category": "Food"
+}

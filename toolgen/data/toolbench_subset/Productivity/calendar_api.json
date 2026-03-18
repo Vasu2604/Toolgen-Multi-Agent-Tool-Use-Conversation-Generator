@@ -1,0 +1,114 @@
+{
+  "tool_name": "calendar_api",
+  "tool_description": "Manage calendar events, schedules, and reminders.",
+  "api_list": [
+    {
+      "name": "create_event",
+      "description": "Create a calendar event.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": "Event title"
+        },
+        {
+          "name": "start_time",
+          "type": "string",
+          "description": "Start ISO datetime"
+        },
+        {
+          "name": "end_time",
+          "type": "string",
+          "description": "End ISO datetime"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "location",
+          "type": "string",
+          "description": "Event location"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Event description"
+        },
+        {
+          "name": "attendees",
+          "type": "string",
+          "description": "Comma-separated emails"
+        }
+      ],
+      "response_fields": [
+        "event_id",
+        "title",
+        "start_time",
+        "end_time",
+        "calendar_link"
+      ]
+    },
+    {
+      "name": "check_availability",
+      "description": "Check calendar availability.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "user_id",
+          "type": "string",
+          "description": "User ID"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "description": "Date YYYY-MM-DD"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "duration_minutes",
+          "type": "integer",
+          "description": "Required duration"
+        }
+      ],
+      "response_fields": [
+        "free_slots",
+        "busy_slots",
+        "next_available"
+      ]
+    },
+    {
+      "name": "get_events",
+      "description": "Get events in a date range.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "start_date",
+          "type": "string",
+          "description": "Start date"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "description": "End date"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "calendar_id",
+          "type": "string",
+          "description": "Specific calendar"
+        }
+      ],
+      "response_fields": [
+        "event_id",
+        "title",
+        "start_time",
+        "end_time",
+        "location",
+        "attendees"
+      ]
+    }
+  ],
+  "category": "Productivity"
+}

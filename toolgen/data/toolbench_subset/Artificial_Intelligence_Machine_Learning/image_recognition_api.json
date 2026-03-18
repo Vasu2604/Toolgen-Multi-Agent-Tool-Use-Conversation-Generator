@@ -1,0 +1,49 @@
+{
+  "tool_name": "image_recognition_api",
+  "tool_description": "Identify objects, scenes, and attributes in images.",
+  "api_list": [
+    {
+      "name": "detect_objects",
+      "description": "Detect objects in an image URL.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "image_url",
+          "type": "string",
+          "description": "URL of image"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "confidence_threshold",
+          "type": "number",
+          "description": "Min confidence 0-1"
+        }
+      ],
+      "response_fields": [
+        "objects",
+        "bounding_boxes",
+        "confidence_scores"
+      ]
+    },
+    {
+      "name": "classify_scene",
+      "description": "Classify the overall scene of an image.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "image_url",
+          "type": "string",
+          "description": "Image URL"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "scene_type",
+        "confidence",
+        "attributes"
+      ]
+    }
+  ],
+  "category": "Artificial_Intelligence_Machine_Learning"
+}

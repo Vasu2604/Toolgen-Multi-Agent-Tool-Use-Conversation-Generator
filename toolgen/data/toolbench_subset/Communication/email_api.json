@@ -1,0 +1,97 @@
+{
+  "tool_name": "email_api",
+  "tool_description": "Send, receive, and manage emails programmatically.",
+  "api_list": [
+    {
+      "name": "send_email",
+      "description": "Send an email.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "to",
+          "type": "string",
+          "description": "Recipient email"
+        },
+        {
+          "name": "subject",
+          "type": "string",
+          "description": "Email subject"
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "description": "Email body text"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "cc",
+          "type": "string",
+          "description": "CC addresses"
+        },
+        {
+          "name": "attachment_url",
+          "type": "string",
+          "description": "File attachment URL"
+        }
+      ],
+      "response_fields": [
+        "message_id",
+        "status",
+        "sent_at"
+      ]
+    },
+    {
+      "name": "get_inbox",
+      "description": "Get emails from inbox.",
+      "method": "GET",
+      "required_parameters": [],
+      "optional_parameters": [
+        {
+          "name": "folder",
+          "type": "string",
+          "description": "inbox|sent|drafts"
+        },
+        {
+          "name": "unread_only",
+          "type": "boolean",
+          "description": "Unread only"
+        },
+        {
+          "name": "limit",
+          "type": "integer",
+          "description": "Max emails"
+        }
+      ],
+      "response_fields": [
+        "message_id",
+        "from",
+        "subject",
+        "date",
+        "read",
+        "has_attachment"
+      ]
+    },
+    {
+      "name": "search_emails",
+      "description": "Search emails by query.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Search query"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "message_id",
+        "from",
+        "subject",
+        "date",
+        "snippet"
+      ]
+    }
+  ],
+  "category": "Communication"
+}

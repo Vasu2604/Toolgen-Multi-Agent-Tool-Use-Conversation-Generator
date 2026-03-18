@@ -1,0 +1,73 @@
+{
+  "tool_name": "fitness_tracking_api",
+  "tool_description": "Log workouts, track fitness metrics, and get recommendations.",
+  "api_list": [
+    {
+      "name": "log_workout",
+      "description": "Log a workout session.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "activity_type",
+          "type": "string",
+          "description": "Type of activity"
+        },
+        {
+          "name": "duration_minutes",
+          "type": "integer",
+          "description": "Duration in minutes"
+        },
+        {
+          "name": "user_id",
+          "type": "string",
+          "description": "User ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "calories_burned",
+          "type": "integer",
+          "description": "Estimated calories"
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "description": "Workout notes"
+        }
+      ],
+      "response_fields": [
+        "workout_id",
+        "calories_burned",
+        "weekly_total_minutes",
+        "streak_days"
+      ]
+    },
+    {
+      "name": "get_fitness_summary",
+      "description": "Get fitness activity summary.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "user_id",
+          "type": "string",
+          "description": "User ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "period",
+          "type": "string",
+          "description": "week|month|year"
+        }
+      ],
+      "response_fields": [
+        "total_workouts",
+        "total_minutes",
+        "calories_burned",
+        "goals_met",
+        "activity_breakdown"
+      ]
+    }
+  ],
+  "category": "Health"
+}

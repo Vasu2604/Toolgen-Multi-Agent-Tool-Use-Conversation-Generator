@@ -1,0 +1,12 @@
+networkx>=3.0
+requests>=2.31.0
+click>=8.1.0
+mem0ai>=0.1.0
+pytest>=7.4.0
+python-dotenv>=1.0.0
+qdrant-client>=1.7.0
+
+# LangGraph / LangChain — graph-based multi-agent pipeline
+langgraph>=0.2.0
+langchain-core>=0.3.0
+langchain-ollama>=0.2.0

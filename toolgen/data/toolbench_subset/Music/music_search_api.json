@@ -1,0 +1,78 @@
+{
+  "tool_name": "music_search_api",
+  "tool_description": "Search for songs, artists, and albums across music databases.",
+  "api_list": [
+    {
+      "name": "search_tracks",
+      "description": "Search for music tracks.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Search query"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "genre",
+          "type": "string",
+          "description": "Genre filter"
+        },
+        {
+          "name": "year",
+          "type": "integer",
+          "description": "Release year"
+        }
+      ],
+      "response_fields": [
+        "track_id",
+        "title",
+        "artist",
+        "album",
+        "duration_ms",
+        "preview_url"
+      ]
+    },
+    {
+      "name": "get_artist_info",
+      "description": "Get details about a music artist.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "artist_id",
+          "type": "string",
+          "description": "Artist ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "name",
+        "genres",
+        "followers",
+        "popularity",
+        "top_tracks"
+      ]
+    },
+    {
+      "name": "get_album_tracks",
+      "description": "Get all tracks from an album.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "album_id",
+          "type": "string",
+          "description": "Album ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "track_number",
+        "title",
+        "duration_ms",
+        "features"
+      ]
+    }
+  ],
+  "category": "Music"
+}

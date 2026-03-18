@@ -1,0 +1,93 @@
+{
+  "tool_name": "influencer_search_api",
+  "tool_description": "Find and analyze social media influencers.",
+  "api_list": [
+    {
+      "name": "search_influencers",
+      "description": "Search for influencers by niche and platform.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "niche",
+          "type": "string",
+          "description": "Content niche or industry"
+        },
+        {
+          "name": "platform",
+          "type": "string",
+          "description": "Platform name"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "min_followers",
+          "type": "integer",
+          "description": "Minimum followers"
+        },
+        {
+          "name": "location",
+          "type": "string",
+          "description": "Geographic location"
+        }
+      ],
+      "response_fields": [
+        "username",
+        "followers",
+        "engagement_rate",
+        "avg_views",
+        "niche",
+        "contact"
+      ]
+    },
+    {
+      "name": "get_influencer_profile",
+      "description": "Get detailed influencer profile.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "username",
+          "type": "string",
+          "description": "Influencer username"
+        },
+        {
+          "name": "platform",
+          "type": "string",
+          "description": "Platform"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "bio",
+        "categories",
+        "audience_demographics",
+        "recent_posts",
+        "collaboration_rate"
+      ]
+    },
+    {
+      "name": "estimate_campaign_reach",
+      "description": "Estimate reach for an influencer campaign.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "influencer_ids",
+          "type": "string",
+          "description": "Comma-separated IDs"
+        },
+        {
+          "name": "budget",
+          "type": "number",
+          "description": "Campaign budget USD"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "estimated_reach",
+        "estimated_impressions",
+        "estimated_engagements",
+        "cost_per_impression"
+      ]
+    }
+  ],
+  "category": "Social"
+}

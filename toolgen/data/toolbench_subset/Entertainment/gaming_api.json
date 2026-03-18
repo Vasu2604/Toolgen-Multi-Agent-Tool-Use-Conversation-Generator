@@ -1,0 +1,87 @@
+{
+  "tool_name": "gaming_api",
+  "tool_description": "Video game information, reviews, and community data.",
+  "api_list": [
+    {
+      "name": "search_games",
+      "description": "Search for video games.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Game title or keyword"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "platform",
+          "type": "string",
+          "description": "ps5|xbox|pc|switch"
+        },
+        {
+          "name": "genre",
+          "type": "string",
+          "description": "Game genre"
+        }
+      ],
+      "response_fields": [
+        "game_id",
+        "title",
+        "developer",
+        "rating",
+        "release_date",
+        "genre",
+        "platforms"
+      ]
+    },
+    {
+      "name": "get_game_details",
+      "description": "Get full details for a game.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "game_id",
+          "type": "string",
+          "description": "Game ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "title",
+        "description",
+        "metacritic_score",
+        "user_score",
+        "dlc",
+        "multiplayer"
+      ]
+    },
+    {
+      "name": "get_player_stats",
+      "description": "Get stats for a player in an online game.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "game_id",
+          "type": "string",
+          "description": "Game ID"
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "Player username"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "level",
+        "rank",
+        "wins",
+        "losses",
+        "kd_ratio",
+        "playtime_hours"
+      ]
+    }
+  ],
+  "category": "Entertainment"
+}

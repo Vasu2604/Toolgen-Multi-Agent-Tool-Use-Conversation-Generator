@@ -1,0 +1,62 @@
+{
+  "tool_name": "price_comparison_api",
+  "tool_description": "Compare prices across different online retailers.",
+  "api_list": [
+    {
+      "name": "compare_prices",
+      "description": "Compare prices for a product across retailers.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "product_name",
+          "type": "string",
+          "description": "Product name"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "brand",
+          "type": "string",
+          "description": "Brand filter"
+        }
+      ],
+      "response_fields": [
+        "retailer",
+        "price",
+        "shipping_cost",
+        "availability",
+        "url"
+      ]
+    },
+    {
+      "name": "track_price",
+      "description": "Set a price alert for a product.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "product_url",
+          "type": "string",
+          "description": "Product URL"
+        },
+        {
+          "name": "target_price",
+          "type": "number",
+          "description": "Alert when price drops below"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Notification email"
+        }
+      ],
+      "response_fields": [
+        "alert_id",
+        "current_price",
+        "status"
+      ]
+    }
+  ],
+  "category": "Commerce"
+}

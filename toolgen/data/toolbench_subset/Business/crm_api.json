@@ -1,0 +1,68 @@
+{
+  "tool_name": "crm_api",
+  "tool_description": "Customer relationship management \u2014 contacts, deals, pipelines.",
+  "api_list": [
+    {
+      "name": "create_contact",
+      "description": "Add a new contact to the CRM.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Contact email"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Full name"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "phone",
+          "type": "string",
+          "description": "Phone number"
+        },
+        {
+          "name": "company",
+          "type": "string",
+          "description": "Company name"
+        }
+      ],
+      "response_fields": [
+        "contact_id",
+        "created_at",
+        "status"
+      ]
+    },
+    {
+      "name": "get_pipeline_deals",
+      "description": "Get all deals in a sales pipeline.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "pipeline_id",
+          "type": "string",
+          "description": "Pipeline ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "stage",
+          "type": "string",
+          "description": "Filter by stage"
+        }
+      ],
+      "response_fields": [
+        "deal_id",
+        "title",
+        "value",
+        "stage",
+        "owner",
+        "close_date"
+      ]
+    }
+  ],
+  "category": "Business"
+}

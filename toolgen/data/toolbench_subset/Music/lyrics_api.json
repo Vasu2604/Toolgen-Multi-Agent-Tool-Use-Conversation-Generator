@@ -1,0 +1,55 @@
+{
+  "tool_name": "lyrics_api",
+  "tool_description": "Retrieve song lyrics and annotations.",
+  "api_list": [
+    {
+      "name": "get_lyrics",
+      "description": "Get lyrics for a song.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "artist",
+          "type": "string",
+          "description": "Artist name"
+        },
+        {
+          "name": "song",
+          "type": "string",
+          "description": "Song title"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "lyrics",
+        "song_id",
+        "language",
+        "explicit"
+      ]
+    },
+    {
+      "name": "search_lyrics",
+      "description": "Search songs by lyrics snippet.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "lyrics_snippet",
+          "type": "string",
+          "description": "Lyrics to search for"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "limit",
+          "type": "integer",
+          "description": "Max results"
+        }
+      ],
+      "response_fields": [
+        "song",
+        "artist",
+        "match_score"
+      ]
+    }
+  ],
+  "category": "Music"
+}

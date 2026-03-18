@@ -1,0 +1,90 @@
+{
+  "tool_name": "playlist_manager_api",
+  "tool_description": "Create, manage, and share music playlists.",
+  "api_list": [
+    {
+      "name": "create_playlist",
+      "description": "Create a new playlist.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Playlist name"
+        },
+        {
+          "name": "track_ids",
+          "type": "string",
+          "description": "Comma-separated track IDs"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "description",
+          "type": "string",
+          "description": "Playlist description"
+        },
+        {
+          "name": "public",
+          "type": "boolean",
+          "description": "Make public"
+        }
+      ],
+      "response_fields": [
+        "playlist_id",
+        "name",
+        "track_count",
+        "share_url"
+      ]
+    },
+    {
+      "name": "get_recommendations",
+      "description": "Get song recommendations based on a playlist.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "playlist_id",
+          "type": "string",
+          "description": "Playlist ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "limit",
+          "type": "integer",
+          "description": "Number of recommendations"
+        }
+      ],
+      "response_fields": [
+        "track_id",
+        "title",
+        "artist",
+        "similarity_score"
+      ]
+    },
+    {
+      "name": "add_tracks",
+      "description": "Add tracks to an existing playlist.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "playlist_id",
+          "type": "string",
+          "description": "Playlist ID"
+        },
+        {
+          "name": "track_ids",
+          "type": "string",
+          "description": "Track IDs to add"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "playlist_id",
+        "new_track_count",
+        "status"
+      ]
+    }
+  ],
+  "category": "Music"
+}

@@ -1,0 +1,94 @@
+{
+  "tool_name": "restaurant_finder",
+  "tool_description": "Find restaurants and food venues near a location.",
+  "api_list": [
+    {
+      "name": "search_restaurants",
+      "description": "Search for restaurants near a location.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "location",
+          "type": "string",
+          "description": "City or address"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "cuisine",
+          "type": "string",
+          "description": "Cuisine type filter"
+        },
+        {
+          "name": "price_range",
+          "type": "string",
+          "description": "1-4 price range"
+        },
+        {
+          "name": "rating_min",
+          "type": "number",
+          "description": "Minimum rating 1-5"
+        }
+      ],
+      "response_fields": [
+        "restaurant_id",
+        "name",
+        "cuisine",
+        "rating",
+        "price_range",
+        "address",
+        "open_now"
+      ]
+    },
+    {
+      "name": "get_restaurant_details",
+      "description": "Get full details for a restaurant.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "restaurant_id",
+          "type": "string",
+          "description": "Restaurant ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "name",
+        "phone",
+        "hours",
+        "menu_url",
+        "delivery_options",
+        "photos"
+      ]
+    },
+    {
+      "name": "check_reservation",
+      "description": "Check table availability.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "restaurant_id",
+          "type": "string",
+          "description": "Restaurant ID"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "description": "Date YYYY-MM-DD"
+        },
+        {
+          "name": "party_size",
+          "type": "integer",
+          "description": "Number of guests"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "available_times",
+        "earliest_available",
+        "requires_deposit"
+      ]
+    }
+  ],
+  "category": "Food"
+}

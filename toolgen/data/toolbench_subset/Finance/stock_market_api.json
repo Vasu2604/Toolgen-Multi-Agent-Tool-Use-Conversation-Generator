@@ -1,0 +1,87 @@
+{
+  "tool_name": "stock_market_api",
+  "tool_description": "Real-time stock prices, historical data, and market analysis.",
+  "api_list": [
+    {
+      "name": "get_stock_price",
+      "description": "Get current stock price.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "symbol",
+          "type": "string",
+          "description": "Stock ticker symbol"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "symbol",
+        "price",
+        "change",
+        "change_percent",
+        "volume",
+        "market_cap"
+      ]
+    },
+    {
+      "name": "get_historical_prices",
+      "description": "Get historical OHLCV data for a stock.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "symbol",
+          "type": "string",
+          "description": "Ticker symbol"
+        },
+        {
+          "name": "period",
+          "type": "string",
+          "description": "1d|1w|1m|1y|5y"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "interval",
+          "type": "string",
+          "description": "1m|5m|1h|1d"
+        }
+      ],
+      "response_fields": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume"
+      ]
+    },
+    {
+      "name": "get_company_financials",
+      "description": "Get income statement and balance sheet.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "symbol",
+          "type": "string",
+          "description": "Ticker symbol"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "period",
+          "type": "string",
+          "description": "annual|quarterly"
+        }
+      ],
+      "response_fields": [
+        "revenue",
+        "net_income",
+        "eps",
+        "total_assets",
+        "total_debt",
+        "pe_ratio"
+      ]
+    }
+  ],
+  "category": "Finance"
+}

@@ -1,0 +1,95 @@
+{
+  "tool_name": "sports_scores_api",
+  "tool_description": "Real-time scores, standings, and statistics for major sports.",
+  "api_list": [
+    {
+      "name": "get_live_scores",
+      "description": "Get live scores for ongoing matches.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "sport",
+          "type": "string",
+          "description": "Sport type"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "league",
+          "type": "string",
+          "description": "League code"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "description": "Date YYYY-MM-DD"
+        }
+      ],
+      "response_fields": [
+        "match_id",
+        "home_team",
+        "away_team",
+        "home_score",
+        "away_score",
+        "status",
+        "minute"
+      ]
+    },
+    {
+      "name": "get_standings",
+      "description": "Get league standings table.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "league_id",
+          "type": "string",
+          "description": "League ID"
+        },
+        {
+          "name": "season",
+          "type": "string",
+          "description": "Season year"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "position",
+        "team",
+        "played",
+        "won",
+        "drawn",
+        "lost",
+        "points",
+        "goal_difference"
+      ]
+    },
+    {
+      "name": "get_player_stats",
+      "description": "Get statistics for a player.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "player_id",
+          "type": "string",
+          "description": "Player ID"
+        },
+        {
+          "name": "season",
+          "type": "string",
+          "description": "Season year"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "name",
+        "team",
+        "position",
+        "goals",
+        "assists",
+        "appearances",
+        "rating"
+      ]
+    }
+  ],
+  "category": "Sports"
+}

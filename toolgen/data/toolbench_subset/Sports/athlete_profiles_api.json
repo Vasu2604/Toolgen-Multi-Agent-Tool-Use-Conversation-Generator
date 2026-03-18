@@ -1,0 +1,91 @@
+{
+  "tool_name": "athlete_profiles_api",
+  "tool_description": "Profiles, career stats, and news for professional athletes.",
+  "api_list": [
+    {
+      "name": "search_athletes",
+      "description": "Search for athletes by name or sport.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Athlete name or keyword"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "sport",
+          "type": "string",
+          "description": "Sport filter"
+        },
+        {
+          "name": "nationality",
+          "type": "string",
+          "description": "Country code"
+        }
+      ],
+      "response_fields": [
+        "athlete_id",
+        "name",
+        "sport",
+        "team",
+        "nationality",
+        "age"
+      ]
+    },
+    {
+      "name": "get_career_stats",
+      "description": "Get full career statistics for an athlete.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "athlete_id",
+          "type": "string",
+          "description": "Athlete ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "season",
+          "type": "string",
+          "description": "Filter by season"
+        }
+      ],
+      "response_fields": [
+        "seasons",
+        "appearances",
+        "achievements",
+        "records",
+        "career_highlights"
+      ]
+    },
+    {
+      "name": "get_athlete_news",
+      "description": "Get recent news about an athlete.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "athlete_id",
+          "type": "string",
+          "description": "Athlete ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "limit",
+          "type": "integer",
+          "description": "Max articles"
+        }
+      ],
+      "response_fields": [
+        "title",
+        "source",
+        "published_at",
+        "url",
+        "summary"
+      ]
+    }
+  ],
+  "category": "Sports"
+}

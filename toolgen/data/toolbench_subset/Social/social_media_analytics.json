@@ -1,0 +1,88 @@
+{
+  "tool_name": "social_media_analytics",
+  "tool_description": "Analytics and insights for social media accounts and posts.",
+  "api_list": [
+    {
+      "name": "get_profile_stats",
+      "description": "Get stats for a social media profile.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "platform",
+          "type": "string",
+          "description": "twitter|instagram|linkedin"
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "description": "Username or handle"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "followers",
+        "following",
+        "posts_count",
+        "engagement_rate",
+        "avg_likes"
+      ]
+    },
+    {
+      "name": "get_post_analytics",
+      "description": "Get analytics for a specific post.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "post_id",
+          "type": "string",
+          "description": "Post ID"
+        },
+        {
+          "name": "platform",
+          "type": "string",
+          "description": "Platform name"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "likes",
+        "comments",
+        "shares",
+        "impressions",
+        "reach",
+        "saves"
+      ]
+    },
+    {
+      "name": "get_hashtag_analytics",
+      "description": "Get analytics for a hashtag.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "hashtag",
+          "type": "string",
+          "description": "Hashtag without #"
+        },
+        {
+          "name": "platform",
+          "type": "string",
+          "description": "Platform name"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "period",
+          "type": "string",
+          "description": "7d|30d|90d"
+        }
+      ],
+      "response_fields": [
+        "post_count",
+        "total_reach",
+        "top_posts",
+        "trending_score"
+      ]
+    }
+  ],
+  "category": "Social"
+}

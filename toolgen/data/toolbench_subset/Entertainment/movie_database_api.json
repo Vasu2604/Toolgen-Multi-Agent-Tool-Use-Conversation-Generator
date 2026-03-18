@@ -1,0 +1,88 @@
+{
+  "tool_name": "movie_database_api",
+  "tool_description": "Movie and TV show information, ratings, and recommendations.",
+  "api_list": [
+    {
+      "name": "search_movies",
+      "description": "Search for movies or TV shows.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Title or keyword"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "movie|tv"
+        },
+        {
+          "name": "year",
+          "type": "integer",
+          "description": "Release year"
+        }
+      ],
+      "response_fields": [
+        "id",
+        "title",
+        "year",
+        "rating",
+        "genre",
+        "poster_url",
+        "overview"
+      ]
+    },
+    {
+      "name": "get_movie_details",
+      "description": "Get full details for a movie or show.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "movie_id",
+          "type": "string",
+          "description": "Movie ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "title",
+        "director",
+        "cast",
+        "runtime",
+        "budget",
+        "box_office",
+        "awards"
+      ]
+    },
+    {
+      "name": "get_recommendations",
+      "description": "Get similar movies or shows.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "movie_id",
+          "type": "string",
+          "description": "Movie ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "limit",
+          "type": "integer",
+          "description": "Number of recommendations"
+        }
+      ],
+      "response_fields": [
+        "id",
+        "title",
+        "year",
+        "rating",
+        "similarity_score"
+      ]
+    }
+  ],
+  "category": "Entertainment"
+}

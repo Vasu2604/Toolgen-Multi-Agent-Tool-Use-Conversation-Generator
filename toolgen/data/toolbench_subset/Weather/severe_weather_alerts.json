@@ -1,0 +1,84 @@
+{
+  "tool_name": "severe_weather_alerts",
+  "tool_description": "Severe weather warnings and alerts by location.",
+  "api_list": [
+    {
+      "name": "get_active_alerts",
+      "description": "Get active weather alerts for a region.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "region",
+          "type": "string",
+          "description": "State/region code"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "severity",
+          "type": "string",
+          "description": "minor|moderate|severe|extreme"
+        }
+      ],
+      "response_fields": [
+        "alert_id",
+        "event",
+        "severity",
+        "area",
+        "expires",
+        "description"
+      ]
+    },
+    {
+      "name": "get_alert_details",
+      "description": "Get details of a specific weather alert.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "alert_id",
+          "type": "string",
+          "description": "Alert ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "event_type",
+        "severity",
+        "certainty",
+        "instructions",
+        "issued",
+        "expires"
+      ]
+    },
+    {
+      "name": "subscribe_alerts",
+      "description": "Subscribe to weather alerts for a location.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "location",
+          "type": "string",
+          "description": "Location"
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "description": "Email for notifications"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "min_severity",
+          "type": "string",
+          "description": "Minimum severity level"
+        }
+      ],
+      "response_fields": [
+        "subscription_id",
+        "status",
+        "location"
+      ]
+    }
+  ],
+  "category": "Weather"
+}

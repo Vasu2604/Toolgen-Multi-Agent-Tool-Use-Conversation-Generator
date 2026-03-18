@@ -1,0 +1,73 @@
+{
+  "tool_name": "task_manager_api",
+  "tool_description": "Create, organize, and track tasks and projects.",
+  "api_list": [
+    {
+      "name": "create_task",
+      "description": "Create a new task.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": "Task title"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "due_date",
+          "type": "string",
+          "description": "Due date"
+        },
+        {
+          "name": "priority",
+          "type": "string",
+          "description": "low|medium|high|urgent"
+        },
+        {
+          "name": "project_id",
+          "type": "string",
+          "description": "Project to add to"
+        }
+      ],
+      "response_fields": [
+        "task_id",
+        "title",
+        "status",
+        "created_at"
+      ]
+    },
+    {
+      "name": "get_tasks",
+      "description": "Get tasks for a project or user.",
+      "method": "GET",
+      "required_parameters": [],
+      "optional_parameters": [
+        {
+          "name": "project_id",
+          "type": "string",
+          "description": "Project filter"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "todo|in_progress|done"
+        },
+        {
+          "name": "due_before",
+          "type": "string",
+          "description": "Due date filter"
+        }
+      ],
+      "response_fields": [
+        "task_id",
+        "title",
+        "status",
+        "priority",
+        "due_date",
+        "assignee"
+      ]
+    }
+  ],
+  "category": "Productivity"
+}

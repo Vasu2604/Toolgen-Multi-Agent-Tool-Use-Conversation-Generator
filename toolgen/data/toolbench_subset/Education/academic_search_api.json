@@ -1,0 +1,82 @@
+{
+  "tool_name": "academic_search_api",
+  "tool_description": "Search academic papers and research publications.",
+  "api_list": [
+    {
+      "name": "search_papers",
+      "description": "Search academic papers by topic.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Research topic"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "year_from",
+          "type": "integer",
+          "description": "Publication year from"
+        },
+        {
+          "name": "field",
+          "type": "string",
+          "description": "Academic field"
+        }
+      ],
+      "response_fields": [
+        "paper_id",
+        "title",
+        "authors",
+        "year",
+        "journal",
+        "citations",
+        "abstract"
+      ]
+    },
+    {
+      "name": "get_paper_details",
+      "description": "Get full details for an academic paper.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "paper_id",
+          "type": "string",
+          "description": "Paper ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "title",
+        "abstract",
+        "authors",
+        "doi",
+        "references",
+        "cited_by"
+      ]
+    },
+    {
+      "name": "get_author_profile",
+      "description": "Get academic author profile.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "author_id",
+          "type": "string",
+          "description": "Author ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "name",
+        "affiliation",
+        "h_index",
+        "citations",
+        "papers_count",
+        "research_interests"
+      ]
+    }
+  ],
+  "category": "Education"
+}

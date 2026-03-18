@@ -1,0 +1,96 @@
+{
+  "tool_name": "analytics_api",
+  "tool_description": "Track events, analyze user behavior, and generate reports.",
+  "api_list": [
+    {
+      "name": "track_event",
+      "description": "Track a custom analytics event.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "event_name",
+          "type": "string",
+          "description": "Event name"
+        },
+        {
+          "name": "properties",
+          "type": "string",
+          "description": "JSON event properties"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "user_id",
+          "type": "string",
+          "description": "User ID"
+        }
+      ],
+      "response_fields": [
+        "event_id",
+        "status",
+        "ingested_at"
+      ]
+    },
+    {
+      "name": "get_event_report",
+      "description": "Get report for an event over a time period.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "event_name",
+          "type": "string",
+          "description": "Event name"
+        },
+        {
+          "name": "start_date",
+          "type": "string",
+          "description": "Start date"
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "description": "End date"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "breakdown",
+          "type": "string",
+          "description": "Breakdown dimension"
+        }
+      ],
+      "response_fields": [
+        "date",
+        "count",
+        "unique_users",
+        "breakdown"
+      ]
+    },
+    {
+      "name": "get_funnel",
+      "description": "Analyze a conversion funnel.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "steps",
+          "type": "string",
+          "description": "JSON array of funnel events"
+        },
+        {
+          "name": "date_range",
+          "type": "string",
+          "description": "Date range"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "step",
+        "users_entered",
+        "users_converted",
+        "conversion_rate",
+        "drop_off"
+      ]
+    }
+  ],
+  "category": "Data"
+}

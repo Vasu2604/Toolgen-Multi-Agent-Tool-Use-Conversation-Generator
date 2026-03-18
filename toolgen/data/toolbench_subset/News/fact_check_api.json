@@ -1,0 +1,79 @@
+{
+  "tool_name": "fact_check_api",
+  "tool_description": "Verify claims and check facts against trusted sources.",
+  "api_list": [
+    {
+      "name": "check_claim",
+      "description": "Fact-check a specific claim.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "claim",
+          "type": "string",
+          "description": "Claim to verify"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "language",
+          "type": "string",
+          "description": "Language code"
+        }
+      ],
+      "response_fields": [
+        "claim",
+        "verdict",
+        "sources",
+        "explanation",
+        "confidence"
+      ]
+    },
+    {
+      "name": "search_fact_checks",
+      "description": "Search existing fact-checks.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Search terms"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "publisher",
+          "type": "string",
+          "description": "Fact-check publisher"
+        }
+      ],
+      "response_fields": [
+        "claim",
+        "verdict",
+        "claimant",
+        "review_date",
+        "url"
+      ]
+    },
+    {
+      "name": "get_claim_reviews",
+      "description": "Get claim reviews from multiple fact-checkers.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "claim_id",
+          "type": "string",
+          "description": "Claim ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "publisher",
+        "verdict",
+        "rating_value",
+        "url",
+        "date"
+      ]
+    }
+  ],
+  "category": "News"
+}

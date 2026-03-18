@@ -1,0 +1,51 @@
+{
+  "tool_name": "keyword_planner",
+  "tool_description": "Research keywords for paid search advertising.",
+  "api_list": [
+    {
+      "name": "get_keyword_ideas",
+      "description": "Get keyword ideas for a topic.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "seed_keyword",
+          "type": "string",
+          "description": "Seed keyword"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "location",
+          "type": "string",
+          "description": "Target location"
+        }
+      ],
+      "response_fields": [
+        "keywords",
+        "avg_monthly_searches",
+        "competition",
+        "bid_range"
+      ]
+    },
+    {
+      "name": "get_keyword_metrics",
+      "description": "Get metrics for specific keywords.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "keywords",
+          "type": "string",
+          "description": "Comma-separated keywords"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "keyword",
+        "volume",
+        "cpc",
+        "competition_score"
+      ]
+    }
+  ],
+  "category": "Advertising"
+}

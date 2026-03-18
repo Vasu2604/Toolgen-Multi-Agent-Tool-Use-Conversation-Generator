@@ -1,0 +1,49 @@
+{
+  "tool_name": "audience_targeting",
+  "tool_description": "Define and manage audience segments for targeted advertising.",
+  "api_list": [
+    {
+      "name": "create_audience",
+      "description": "Create a custom audience segment.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Audience name"
+        },
+        {
+          "name": "criteria",
+          "type": "string",
+          "description": "JSON targeting criteria"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "audience_id",
+        "estimated_size",
+        "status"
+      ]
+    },
+    {
+      "name": "get_audience_insights",
+      "description": "Get demographic insights for an audience.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "audience_id",
+          "type": "string",
+          "description": "Audience ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "age_distribution",
+        "gender_split",
+        "interests",
+        "devices"
+      ]
+    }
+  ],
+  "category": "Advertising"
+}

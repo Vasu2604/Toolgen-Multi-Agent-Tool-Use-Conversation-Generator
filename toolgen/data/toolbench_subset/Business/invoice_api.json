@@ -1,0 +1,85 @@
+{
+  "tool_name": "invoice_api",
+  "tool_description": "Create, send, and manage invoices and payments.",
+  "api_list": [
+    {
+      "name": "create_invoice",
+      "description": "Create a new invoice.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "client_id",
+          "type": "string",
+          "description": "Client ID"
+        },
+        {
+          "name": "items",
+          "type": "string",
+          "description": "JSON array of line items"
+        },
+        {
+          "name": "due_date",
+          "type": "string",
+          "description": "Due date YYYY-MM-DD"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "currency",
+          "type": "string",
+          "description": "Currency code"
+        }
+      ],
+      "response_fields": [
+        "invoice_id",
+        "total",
+        "status",
+        "pdf_url"
+      ]
+    },
+    {
+      "name": "get_invoice_status",
+      "description": "Check the status of an invoice.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "invoice_id",
+          "type": "string",
+          "description": "Invoice ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "status",
+        "paid_at",
+        "amount_due",
+        "amount_paid"
+      ]
+    },
+    {
+      "name": "send_invoice",
+      "description": "Email an invoice to the client.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "invoice_id",
+          "type": "string",
+          "description": "Invoice ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "message",
+          "type": "string",
+          "description": "Custom email message"
+        }
+      ],
+      "response_fields": [
+        "sent_at",
+        "recipient_email",
+        "status"
+      ]
+    }
+  ],
+  "category": "Business"
+}

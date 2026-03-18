@@ -1,0 +1,94 @@
+{
+  "tool_name": "food_delivery_api",
+  "tool_description": "Order food delivery from local restaurants.",
+  "api_list": [
+    {
+      "name": "get_delivery_restaurants",
+      "description": "Get restaurants that deliver to an address.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "delivery_address",
+          "type": "string",
+          "description": "Delivery address"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "cuisine",
+          "type": "string",
+          "description": "Cuisine filter"
+        },
+        {
+          "name": "max_delivery_time",
+          "type": "integer",
+          "description": "Max delivery time minutes"
+        }
+      ],
+      "response_fields": [
+        "restaurant_id",
+        "name",
+        "delivery_time",
+        "delivery_fee",
+        "min_order",
+        "rating"
+      ]
+    },
+    {
+      "name": "place_order",
+      "description": "Place a food delivery order.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "restaurant_id",
+          "type": "string",
+          "description": "Restaurant ID"
+        },
+        {
+          "name": "items",
+          "type": "string",
+          "description": "JSON array of items"
+        },
+        {
+          "name": "delivery_address",
+          "type": "string",
+          "description": "Delivery address"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "special_instructions",
+          "type": "string",
+          "description": "Order instructions"
+        }
+      ],
+      "response_fields": [
+        "order_id",
+        "status",
+        "estimated_arrival",
+        "total",
+        "driver_info"
+      ]
+    },
+    {
+      "name": "track_delivery",
+      "description": "Track an active food delivery.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "order_id",
+          "type": "string",
+          "description": "Order ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "status",
+        "driver_location",
+        "estimated_arrival",
+        "updates"
+      ]
+    }
+  ],
+  "category": "Food"
+}

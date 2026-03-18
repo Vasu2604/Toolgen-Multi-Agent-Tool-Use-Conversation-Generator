@@ -1,0 +1,74 @@
+{
+  "tool_name": "nlp_processing_api",
+  "tool_description": "Natural language processing tasks including NER, sentiment, and summarization.",
+  "api_list": [
+    {
+      "name": "extract_entities",
+      "description": "Extract named entities from text.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Input text"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "entity_types",
+          "type": "string",
+          "description": "Filter entity types"
+        }
+      ],
+      "response_fields": [
+        "entities",
+        "entity_type",
+        "start_pos",
+        "end_pos",
+        "confidence"
+      ]
+    },
+    {
+      "name": "analyze_sentiment",
+      "description": "Analyze sentiment of a text.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Input text"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "sentiment",
+        "score",
+        "magnitude"
+      ]
+    },
+    {
+      "name": "summarize_text",
+      "description": "Summarize a long text document.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Text to summarize"
+        },
+        {
+          "name": "max_length",
+          "type": "integer",
+          "description": "Max words in summary"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "summary",
+        "compression_ratio",
+        "key_points"
+      ]
+    }
+  ],
+  "category": "Artificial_Intelligence_Machine_Learning"
+}

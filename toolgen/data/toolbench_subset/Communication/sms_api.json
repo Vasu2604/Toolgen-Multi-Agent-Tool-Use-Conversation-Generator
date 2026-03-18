@@ -1,0 +1,55 @@
+{
+  "tool_name": "sms_api",
+  "tool_description": "Send SMS and MMS messages programmatically.",
+  "api_list": [
+    {
+      "name": "send_sms",
+      "description": "Send an SMS message.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "to",
+          "type": "string",
+          "description": "Recipient phone number"
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": "Message text"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "from_number",
+          "type": "string",
+          "description": "Sender number"
+        }
+      ],
+      "response_fields": [
+        "message_id",
+        "status",
+        "cost",
+        "segments"
+      ]
+    },
+    {
+      "name": "get_sms_status",
+      "description": "Check delivery status of an SMS.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "message_id",
+          "type": "string",
+          "description": "Message ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "status",
+        "delivered_at",
+        "error_code"
+      ]
+    }
+  ],
+  "category": "Communication"
+}

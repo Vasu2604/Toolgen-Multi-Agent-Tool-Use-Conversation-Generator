@@ -1,0 +1,81 @@
+{
+  "tool_name": "geocoding_api",
+  "tool_description": "Convert addresses to coordinates and vice versa.",
+  "api_list": [
+    {
+      "name": "geocode_address",
+      "description": "Convert an address to coordinates.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "address",
+          "type": "string",
+          "description": "Address to geocode"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "country",
+          "type": "string",
+          "description": "Country bias code"
+        }
+      ],
+      "response_fields": [
+        "latitude",
+        "longitude",
+        "formatted_address",
+        "place_id",
+        "accuracy"
+      ]
+    },
+    {
+      "name": "reverse_geocode",
+      "description": "Convert coordinates to an address.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "latitude",
+          "type": "number",
+          "description": "Latitude"
+        },
+        {
+          "name": "longitude",
+          "type": "number",
+          "description": "Longitude"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "formatted_address",
+        "street",
+        "city",
+        "state",
+        "country",
+        "postal_code"
+      ]
+    },
+    {
+      "name": "get_place_details",
+      "description": "Get details for a place.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "place_id",
+          "type": "string",
+          "description": "Place ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "name",
+        "address",
+        "phone",
+        "website",
+        "hours",
+        "rating",
+        "reviews"
+      ]
+    }
+  ],
+  "category": "Maps"
+}

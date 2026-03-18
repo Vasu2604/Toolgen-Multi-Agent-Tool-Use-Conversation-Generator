@@ -1,0 +1,46 @@
+{
+  "tool_name": "air_quality_api",
+  "tool_description": "Real-time and forecast air quality index data.",
+  "api_list": [
+    {
+      "name": "get_air_quality",
+      "description": "Get current AQI for a location.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "location",
+          "type": "string",
+          "description": "City or coordinates"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "aqi",
+        "pm25",
+        "pm10",
+        "o3",
+        "no2",
+        "health_category"
+      ]
+    },
+    {
+      "name": "get_aqi_forecast",
+      "description": "Get AQI forecast for the next 3 days.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "location",
+          "type": "string",
+          "description": "Location"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "date",
+        "aqi_forecast",
+        "dominant_pollutant"
+      ]
+    }
+  ],
+  "category": "Weather"
+}

@@ -1,0 +1,51 @@
+{
+  "tool_name": "rss_feed_api",
+  "tool_description": "Manage and read RSS/Atom news feeds.",
+  "api_list": [
+    {
+      "name": "get_feed_items",
+      "description": "Get items from an RSS feed.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "feed_url",
+          "type": "string",
+          "description": "RSS feed URL"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "limit",
+          "type": "integer",
+          "description": "Max items to return"
+        }
+      ],
+      "response_fields": [
+        "title",
+        "link",
+        "published",
+        "summary",
+        "author"
+      ]
+    },
+    {
+      "name": "discover_feeds",
+      "description": "Discover RSS feeds from a website.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "website_url",
+          "type": "string",
+          "description": "Website to scan"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "feed_url",
+        "feed_title",
+        "feed_type"
+      ]
+    }
+  ],
+  "category": "News"
+}

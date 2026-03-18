@@ -1,0 +1,89 @@
+{
+  "tool_name": "weather_api",
+  "tool_description": "Current weather, forecasts, and historical weather data.",
+  "api_list": [
+    {
+      "name": "get_current_weather",
+      "description": "Get current weather for a location.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "location",
+          "type": "string",
+          "description": "City name or coordinates"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "units",
+          "type": "string",
+          "description": "metric|imperial|kelvin"
+        }
+      ],
+      "response_fields": [
+        "temperature",
+        "feels_like",
+        "humidity",
+        "wind_speed",
+        "conditions",
+        "uv_index"
+      ]
+    },
+    {
+      "name": "get_weather_forecast",
+      "description": "Get weather forecast for up to 14 days.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "location",
+          "type": "string",
+          "description": "Location name"
+        },
+        {
+          "name": "days",
+          "type": "integer",
+          "description": "Number of forecast days"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "units",
+          "type": "string",
+          "description": "metric|imperial"
+        }
+      ],
+      "response_fields": [
+        "date",
+        "high",
+        "low",
+        "precipitation_chance",
+        "conditions"
+      ]
+    },
+    {
+      "name": "get_historical_weather",
+      "description": "Get historical weather for a past date.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "location",
+          "type": "string",
+          "description": "Location"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "description": "Date YYYY-MM-DD"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "temperature",
+        "precipitation",
+        "wind_speed",
+        "conditions"
+      ]
+    }
+  ],
+  "category": "Weather"
+}

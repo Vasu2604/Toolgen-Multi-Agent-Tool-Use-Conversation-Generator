@@ -1,0 +1,87 @@
+{
+  "tool_name": "company_data_api",
+  "tool_description": "Access company profiles, financials, and business intelligence data.",
+  "api_list": [
+    {
+      "name": "search_companies",
+      "description": "Search for companies by name or industry.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Company name or keyword"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "industry",
+          "type": "string",
+          "description": "Industry filter"
+        },
+        {
+          "name": "country",
+          "type": "string",
+          "description": "Country code"
+        }
+      ],
+      "response_fields": [
+        "company_id",
+        "name",
+        "industry",
+        "founded",
+        "employees",
+        "revenue"
+      ]
+    },
+    {
+      "name": "get_company_details",
+      "description": "Get detailed info for a specific company.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "company_id",
+          "type": "string",
+          "description": "Company ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "name",
+        "description",
+        "website",
+        "linkedin",
+        "revenue",
+        "employees",
+        "hq_location"
+      ]
+    },
+    {
+      "name": "get_company_news",
+      "description": "Get recent news for a company.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "company_id",
+          "type": "string",
+          "description": "Company ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "limit",
+          "type": "integer",
+          "description": "Number of articles"
+        }
+      ],
+      "response_fields": [
+        "title",
+        "source",
+        "published_at",
+        "url",
+        "summary"
+      ]
+    }
+  ],
+  "category": "Business"
+}

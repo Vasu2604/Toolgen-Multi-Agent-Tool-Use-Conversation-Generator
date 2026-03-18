@@ -1,0 +1,86 @@
+{
+  "tool_name": "course_search_api",
+  "tool_description": "Search and discover online courses and learning resources.",
+  "api_list": [
+    {
+      "name": "search_courses",
+      "description": "Search for online courses.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Topic or keyword"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "platform",
+          "type": "string",
+          "description": "udemy|coursera|edx"
+        },
+        {
+          "name": "level",
+          "type": "string",
+          "description": "beginner|intermediate|advanced"
+        },
+        {
+          "name": "free_only",
+          "type": "boolean",
+          "description": "Free courses only"
+        }
+      ],
+      "response_fields": [
+        "course_id",
+        "title",
+        "instructor",
+        "rating",
+        "students_count",
+        "price",
+        "duration_hours"
+      ]
+    },
+    {
+      "name": "get_course_details",
+      "description": "Get full details for a course.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "course_id",
+          "type": "string",
+          "description": "Course ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "title",
+        "description",
+        "curriculum",
+        "prerequisites",
+        "certificate",
+        "language"
+      ]
+    },
+    {
+      "name": "get_course_reviews",
+      "description": "Get reviews for a course.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "course_id",
+          "type": "string",
+          "description": "Course ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "reviewer",
+        "rating",
+        "review",
+        "date",
+        "helpful"
+      ]
+    }
+  ],
+  "category": "Education"
+}

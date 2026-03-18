@@ -1,0 +1,84 @@
+{
+  "tool_name": "database_api",
+  "tool_description": "Query and manage cloud database tables via REST.",
+  "api_list": [
+    {
+      "name": "execute_query",
+      "description": "Execute a SQL-like query.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Query string"
+        },
+        {
+          "name": "database_id",
+          "type": "string",
+          "description": "Database ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "limit",
+          "type": "integer",
+          "description": "Max rows returned"
+        }
+      ],
+      "response_fields": [
+        "columns",
+        "rows",
+        "row_count",
+        "execution_time_ms"
+      ]
+    },
+    {
+      "name": "create_table",
+      "description": "Create a new database table.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "table_name",
+          "type": "string",
+          "description": "Table name"
+        },
+        {
+          "name": "schema",
+          "type": "string",
+          "description": "JSON schema definition"
+        },
+        {
+          "name": "database_id",
+          "type": "string",
+          "description": "Database ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "table_id",
+        "status",
+        "created_at"
+      ]
+    },
+    {
+      "name": "list_tables",
+      "description": "List all tables in a database.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "database_id",
+          "type": "string",
+          "description": "Database ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "table_name",
+        "row_count",
+        "size_mb",
+        "created_at"
+      ]
+    }
+  ],
+  "category": "Data"
+}

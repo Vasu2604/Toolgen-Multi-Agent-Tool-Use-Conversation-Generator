@@ -1,0 +1,86 @@
+{
+  "tool_name": "currency_exchange_api",
+  "tool_description": "Foreign exchange rates and currency conversion.",
+  "api_list": [
+    {
+      "name": "get_exchange_rate",
+      "description": "Get current exchange rate between two currencies.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "base",
+          "type": "string",
+          "description": "Base currency code e.g. USD"
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "description": "Target currency code"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "base",
+        "target",
+        "rate",
+        "timestamp",
+        "bid",
+        "ask"
+      ]
+    },
+    {
+      "name": "convert_currency",
+      "description": "Convert an amount from one currency to another.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "amount",
+          "type": "number",
+          "description": "Amount to convert"
+        },
+        {
+          "name": "from_currency",
+          "type": "string",
+          "description": "Source currency"
+        },
+        {
+          "name": "to_currency",
+          "type": "string",
+          "description": "Target currency"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "date",
+          "type": "string",
+          "description": "Historical date YYYY-MM-DD"
+        }
+      ],
+      "response_fields": [
+        "original_amount",
+        "converted_amount",
+        "rate",
+        "date"
+      ]
+    },
+    {
+      "name": "get_all_rates",
+      "description": "Get rates for all currencies relative to a base.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "base",
+          "type": "string",
+          "description": "Base currency"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "base",
+        "date",
+        "rates"
+      ]
+    }
+  ],
+  "category": "Finance"
+}

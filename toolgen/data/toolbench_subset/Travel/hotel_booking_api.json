@@ -1,0 +1,116 @@
+{
+  "tool_name": "hotel_booking_api",
+  "tool_description": "Search, compare, and book hotels worldwide.",
+  "api_list": [
+    {
+      "name": "search_hotels",
+      "description": "Search for hotels in a destination.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "destination",
+          "type": "string",
+          "description": "City or destination"
+        },
+        {
+          "name": "check_in",
+          "type": "string",
+          "description": "Check-in date YYYY-MM-DD"
+        },
+        {
+          "name": "check_out",
+          "type": "string",
+          "description": "Check-out date YYYY-MM-DD"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "guests",
+          "type": "integer",
+          "description": "Number of guests"
+        },
+        {
+          "name": "stars",
+          "type": "integer",
+          "description": "Star rating filter"
+        },
+        {
+          "name": "max_price",
+          "type": "number",
+          "description": "Max price per night"
+        }
+      ],
+      "response_fields": [
+        "hotel_id",
+        "name",
+        "stars",
+        "rating",
+        "price_per_night",
+        "address",
+        "amenities"
+      ]
+    },
+    {
+      "name": "get_hotel_details",
+      "description": "Get full details for a hotel.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "hotel_id",
+          "type": "string",
+          "description": "Hotel ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "name",
+        "description",
+        "photos",
+        "facilities",
+        "policies",
+        "location"
+      ]
+    },
+    {
+      "name": "book_hotel",
+      "description": "Book a hotel room.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "hotel_id",
+          "type": "string",
+          "description": "Hotel ID"
+        },
+        {
+          "name": "room_type",
+          "type": "string",
+          "description": "Room type"
+        },
+        {
+          "name": "guest_name",
+          "type": "string",
+          "description": "Guest full name"
+        },
+        {
+          "name": "check_in",
+          "type": "string",
+          "description": "Check-in date"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "special_requests",
+          "type": "string",
+          "description": "Special requests"
+        }
+      ],
+      "response_fields": [
+        "booking_id",
+        "confirmation_number",
+        "total_price",
+        "status"
+      ]
+    }
+  ],
+  "category": "Travel"
+}

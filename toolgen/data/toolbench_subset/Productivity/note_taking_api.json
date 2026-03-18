@@ -1,0 +1,92 @@
+{
+  "tool_name": "note_taking_api",
+  "tool_description": "Create, organize, and search notes and documents.",
+  "api_list": [
+    {
+      "name": "create_note",
+      "description": "Create a new note.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "title",
+          "type": "string",
+          "description": "Note title"
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "description": "Note content"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "tags",
+          "type": "string",
+          "description": "Comma-separated tags"
+        },
+        {
+          "name": "notebook",
+          "type": "string",
+          "description": "Notebook name"
+        }
+      ],
+      "response_fields": [
+        "note_id",
+        "created_at",
+        "share_url"
+      ]
+    },
+    {
+      "name": "search_notes",
+      "description": "Search notes by keyword.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Search query"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "notebook",
+          "type": "string",
+          "description": "Notebook filter"
+        },
+        {
+          "name": "tags",
+          "type": "string",
+          "description": "Tag filter"
+        }
+      ],
+      "response_fields": [
+        "note_id",
+        "title",
+        "snippet",
+        "created_at",
+        "tags"
+      ]
+    },
+    {
+      "name": "get_note",
+      "description": "Retrieve a specific note.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "note_id",
+          "type": "string",
+          "description": "Note ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "title",
+        "content",
+        "created_at",
+        "updated_at",
+        "tags"
+      ]
+    }
+  ],
+  "category": "Productivity"
+}

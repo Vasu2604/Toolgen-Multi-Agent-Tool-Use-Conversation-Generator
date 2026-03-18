@@ -1,0 +1,72 @@
+{
+  "tool_name": "car_rental_api",
+  "tool_description": "Search and book rental cars at airports and cities.",
+  "api_list": [
+    {
+      "name": "search_cars",
+      "description": "Search for available rental cars.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "pickup_location",
+          "type": "string",
+          "description": "Pickup location"
+        },
+        {
+          "name": "pickup_date",
+          "type": "string",
+          "description": "Pickup date YYYY-MM-DD"
+        },
+        {
+          "name": "return_date",
+          "type": "string",
+          "description": "Return date YYYY-MM-DD"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "car_class",
+          "type": "string",
+          "description": "economy|compact|suv|luxury"
+        },
+        {
+          "name": "max_price",
+          "type": "number",
+          "description": "Max daily rate"
+        }
+      ],
+      "response_fields": [
+        "car_id",
+        "make",
+        "model",
+        "class",
+        "seats",
+        "price_per_day",
+        "company"
+      ]
+    },
+    {
+      "name": "get_car_details",
+      "description": "Get full details for a rental car.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "car_id",
+          "type": "string",
+          "description": "Car ID"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "make",
+        "model",
+        "year",
+        "fuel_type",
+        "transmission",
+        "features",
+        "inclusions"
+      ]
+    }
+  ],
+  "category": "Travel"
+}

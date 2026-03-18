@@ -1,0 +1,67 @@
+{
+  "tool_name": "directions_api",
+  "tool_description": "Get turn-by-turn directions and route planning.",
+  "api_list": [
+    {
+      "name": "get_directions",
+      "description": "Get driving/transit/walking directions.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "origin",
+          "type": "string",
+          "description": "Start address"
+        },
+        {
+          "name": "destination",
+          "type": "string",
+          "description": "End address"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "mode",
+          "type": "string",
+          "description": "driving|transit|walking|cycling"
+        },
+        {
+          "name": "avoid",
+          "type": "string",
+          "description": "tolls|highways|ferries"
+        }
+      ],
+      "response_fields": [
+        "distance_km",
+        "duration_minutes",
+        "steps",
+        "waypoints",
+        "toll_cost"
+      ]
+    },
+    {
+      "name": "get_traffic",
+      "description": "Get current traffic conditions on a route.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "origin",
+          "type": "string",
+          "description": "Start location"
+        },
+        {
+          "name": "destination",
+          "type": "string",
+          "description": "End location"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "traffic_level",
+        "delay_minutes",
+        "incidents",
+        "suggested_route"
+      ]
+    }
+  ],
+  "category": "Maps"
+}

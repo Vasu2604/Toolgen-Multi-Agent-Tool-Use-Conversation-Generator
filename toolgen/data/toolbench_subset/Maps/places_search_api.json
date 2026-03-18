@@ -1,0 +1,95 @@
+{
+  "tool_name": "places_search_api",
+  "tool_description": "Search for points of interest and nearby places.",
+  "api_list": [
+    {
+      "name": "search_nearby",
+      "description": "Search for places near a location.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "location",
+          "type": "string",
+          "description": "Center location"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "Place type e.g. hospital"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "radius_km",
+          "type": "number",
+          "description": "Search radius"
+        },
+        {
+          "name": "open_now",
+          "type": "boolean",
+          "description": "Filter open places"
+        }
+      ],
+      "response_fields": [
+        "place_id",
+        "name",
+        "distance_km",
+        "rating",
+        "address",
+        "open_now"
+      ]
+    },
+    {
+      "name": "get_place_reviews",
+      "description": "Get user reviews for a place.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "place_id",
+          "type": "string",
+          "description": "Place ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "limit",
+          "type": "integer",
+          "description": "Max reviews"
+        }
+      ],
+      "response_fields": [
+        "author",
+        "rating",
+        "text",
+        "date",
+        "helpful_votes"
+      ]
+    },
+    {
+      "name": "get_place_photos",
+      "description": "Get photos for a place.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "place_id",
+          "type": "string",
+          "description": "Place ID"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "max_width",
+          "type": "integer",
+          "description": "Max image width px"
+        }
+      ],
+      "response_fields": [
+        "photo_url",
+        "width",
+        "height",
+        "attribution"
+      ]
+    }
+  ],
+  "category": "Maps"
+}

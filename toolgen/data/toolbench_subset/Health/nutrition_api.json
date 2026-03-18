@@ -1,0 +1,93 @@
+{
+  "tool_name": "nutrition_api",
+  "tool_description": "Food nutrition data, meal tracking, and dietary analysis.",
+  "api_list": [
+    {
+      "name": "get_nutrition_info",
+      "description": "Get nutritional info for a food item.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "food_item",
+          "type": "string",
+          "description": "Food name or barcode"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "serving_size",
+          "type": "string",
+          "description": "Serving size"
+        }
+      ],
+      "response_fields": [
+        "calories",
+        "protein",
+        "carbs",
+        "fat",
+        "fiber",
+        "sugar",
+        "vitamins",
+        "minerals"
+      ]
+    },
+    {
+      "name": "analyze_meal",
+      "description": "Analyze nutritional composition of a full meal.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "foods",
+          "type": "string",
+          "description": "JSON array of food items with quantities"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "total_calories",
+        "macros",
+        "micros",
+        "health_score",
+        "recommendations"
+      ]
+    },
+    {
+      "name": "get_daily_target",
+      "description": "Get recommended daily nutritional targets.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "age",
+          "type": "integer",
+          "description": "Age in years"
+        },
+        {
+          "name": "gender",
+          "type": "string",
+          "description": "male|female"
+        },
+        {
+          "name": "activity_level",
+          "type": "string",
+          "description": "sedentary|moderate|active"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "goal",
+          "type": "string",
+          "description": "lose_weight|maintain|gain_muscle"
+        }
+      ],
+      "response_fields": [
+        "calories",
+        "protein_g",
+        "carbs_g",
+        "fat_g",
+        "fiber_g",
+        "water_ml"
+      ]
+    }
+  ],
+  "category": "Health"
+}

@@ -1,0 +1,63 @@
+{
+  "tool_name": "file_storage_api",
+  "tool_description": "Store, retrieve, and manage files in cloud storage.",
+  "api_list": [
+    {
+      "name": "upload_file",
+      "description": "Upload a file to storage.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "file_url",
+          "type": "string",
+          "description": "Source file URL"
+        },
+        {
+          "name": "destination_path",
+          "type": "string",
+          "description": "Storage path"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "public",
+          "type": "boolean",
+          "description": "Make file public"
+        }
+      ],
+      "response_fields": [
+        "file_id",
+        "storage_url",
+        "size_bytes",
+        "content_type"
+      ]
+    },
+    {
+      "name": "list_files",
+      "description": "List files in a storage directory.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "directory",
+          "type": "string",
+          "description": "Storage directory path"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "file_type",
+          "type": "string",
+          "description": "Filter by file type"
+        }
+      ],
+      "response_fields": [
+        "file_id",
+        "name",
+        "size_bytes",
+        "modified_at",
+        "url"
+      ]
+    }
+  ],
+  "category": "Data"
+}

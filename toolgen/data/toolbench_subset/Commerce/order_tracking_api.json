@@ -1,0 +1,94 @@
+{
+  "tool_name": "order_tracking_api",
+  "tool_description": "Track orders and shipments across carriers.",
+  "api_list": [
+    {
+      "name": "track_order",
+      "description": "Track an order by tracking number.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "tracking_number",
+          "type": "string",
+          "description": "Tracking number"
+        },
+        {
+          "name": "carrier",
+          "type": "string",
+          "description": "Carrier name"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "status",
+        "location",
+        "estimated_delivery",
+        "events"
+      ]
+    },
+    {
+      "name": "get_shipping_rates",
+      "description": "Get shipping rate quotes.",
+      "method": "POST",
+      "required_parameters": [
+        {
+          "name": "origin_zip",
+          "type": "string",
+          "description": "Origin ZIP code"
+        },
+        {
+          "name": "dest_zip",
+          "type": "string",
+          "description": "Destination ZIP code"
+        },
+        {
+          "name": "weight_kg",
+          "type": "number",
+          "description": "Package weight in kg"
+        }
+      ],
+      "optional_parameters": [
+        {
+          "name": "dimensions",
+          "type": "string",
+          "description": "LxWxH in cm"
+        }
+      ],
+      "response_fields": [
+        "carrier",
+        "service",
+        "rate",
+        "transit_days"
+      ]
+    },
+    {
+      "name": "estimate_delivery",
+      "description": "Estimate delivery date for a shipment.",
+      "method": "GET",
+      "required_parameters": [
+        {
+          "name": "origin",
+          "type": "string",
+          "description": "Origin city/country"
+        },
+        {
+          "name": "destination",
+          "type": "string",
+          "description": "Destination city/country"
+        },
+        {
+          "name": "carrier",
+          "type": "string",
+          "description": "Carrier name"
+        }
+      ],
+      "optional_parameters": [],
+      "response_fields": [
+        "estimated_date",
+        "transit_days",
+        "confidence"
+      ]
+    }
+  ],
+  "category": "Commerce"
+}
